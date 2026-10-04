@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Bài Viết — Truyền Hình Công Thương</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#C4161C',
+              'red-dark': '#991B1B',
+              blue: '#004B87',
+              'blue-light': '#0284C7',
+              navy: '#071526',
+              'navy-card': '#0B1E36',
+              canvas: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Be Vietnam Pro', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased selection:bg-red-600 selection:text-white">
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-message" class="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-lg bg-slate-900 text-white text-sm font-semibold shadow-2xl transition-all duration-300 opacity-0 pointer-events-none border border-slate-700">
+    Thông báo
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. TOP HEADER WITH USER'S LOGO.PNG & BRAND TEXT (CHUẨN ẢNH 2)             -->
+  <!-- ========================================================================= -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between">
+      
+      <!-- LOGO + TEXT TRUYỀN HÌNH CÔNG THƯƠNG -->
+      <a href="index.html" class="flex items-center gap-3 sm:gap-4 group">
+        <img src="logo.png" alt="Công Thương TV" class="h-12 sm:h-14 md:h-16 w-auto object-contain flex-shrink-0" />
+        <div class="flex flex-col justify-center">
+          <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-500">BỘ CÔNG THƯƠNG VIỆT NAM</span>
+          <span class="text-base sm:text-xl md:text-2xl font-black text-[#004B87] uppercase tracking-tight leading-tight group-hover:text-red-700 transition-colors">
+            TRUNG TÂM TRUYỀN THÔNG · TRUYỀN HÌNH CÔNG THƯƠNG
+          </span>
+          <span class="text-[10px] sm:text-xs text-slate-500 font-semibold tracking-wide hidden sm:block">
+            Cơ quan ngôn luận của Bộ Công Thương · Tiếng nói của ngành Công nghiệp & Thương mại
+          </span>
+        </div>
+      </a>
+
+      <!-- HOTLINE BÊN PHẢI -->
+      <div class="hidden lg:flex flex-col items-end text-xs text-slate-600 font-sans">
+        <div class="flex items-center gap-2 text-slate-700 font-semibold">
+          <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+          Hotline: <strong class="text-red-700 text-sm font-bold font-mono">024.3934.2228</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- 2. SOLID RED NAVBAR (CHÍNH XÁC NHƯ ẢNH 2 CỦA USER)                      -->
+    <!-- ======================================================================= -->
+    <nav class="bg-[#B91C1C] text-white shadow-md sticky top-0 z-40" aria-label="Menu chính">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between">
+        
+        <ul class="flex items-center overflow-x-auto whitespace-nowrap text-xs font-bold uppercase tracking-wider py-0 no-scrollbar">
+          <li class="flex-shrink-0">
+            <a href="index.html" class="flex items-center px-3.5 py-3 hover:bg-red-800 text-white transition-colors" title="Trang chủ">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </a>
+          </li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=thoi-su" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">TIN TỨC</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=cong-nghiep" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">CÔNG NGHIỆP</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=thuong-mai" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">THƯƠNG MẠI</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=hoi-nhap" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">HỘI NHẬP</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=thuong-hieu" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">THƯƠNG HIỆU</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=chuyen-doi-so" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">KHOA HỌC CÔNG NGHỆ</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=doanh-nghiep" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">DOANH NGHIỆP</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=van-hoa-cong-thuong" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">VĂN HÓA CÔNG THƯƠNG</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="video.html" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors font-black">VIDEO</a></li>
+          <li class="text-white/40 font-light select-none px-1">|</li>
+          <li class="flex-shrink-0"><a href="category.html?cat=tap-chi-anh" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">TẠP CHÍ ẢNH</a></li>
+        </ul>
+
+        <button id="open-search-btn" class="p-2.5 hover:bg-red-800 text-white transition-colors flex-shrink-0" aria-label="Tìm kiếm bài viết">
+          <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </button>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-6 uppercase tracking-wider" aria-label="Đường dẫn">
+      <a href="index.html" class="hover:text-slate-700">Trang chủ</a>
+      <span>/</span>
+      <span id="article-cat-breadcrumb" class="text-brand-blue font-bold">Chuyên mục</span>
+      <span>/</span>
+      <span class="text-slate-600 truncate max-w-xs">Chi tiết bài viết</span>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="mb-8">
+      <!-- Tag Kicker -->
+      <span id="article-kicker" class="px-2.5 py-1 bg-red-100 text-brand-red text-xs font-extrabold uppercase tracking-widest rounded mb-3 inline-block">
+        TIÊU ĐIỂM · NĂNG LƯỢNG QUỐC GIA
+      </span>
+
+      <!-- Tiêu đề bài viết H1 font-editorial lớn phong cách Wired -->
+      <h1 id="article-title" class="font-editorial text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black text-slate-900 leading-tight mb-6">
+        Đang tải bài viết...
+      </h1>
+
+      <!-- Byline & Metadata Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-slate-200 text-xs text-slate-500 font-semibold">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-xs uppercase">
+            TC
+          </div>
+          <div>
+            <span id="article-author" class="block font-bold text-slate-900 uppercase">BAN BIÊN TẬP</span>
+            <span id="article-time" class="text-slate-400">05/10/2026 18:30 GMT+7</span>
+          </div>
+        </div>
+
+        <!-- READING TOOLBAR (WIRED UTILITY) -->
+        <div class="flex items-center gap-2">
+          <!-- Phóng to / Thu nhỏ cỡ chữ -->
+          <div class="flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200">
+            <button id="zoom-out-btn" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:text-brand-red" title="Thu nhỏ cỡ chữ">A-</button>
+            <div class="h-3 w-[1px] bg-slate-300"></div>
+            <button id="zoom-in-btn" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:text-brand-red" title="Phóng to cỡ chữ">A+</button>
+          </div>
+
+          <!-- Nút Copy Link -->
+          <button id="copy-link-btn" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition-colors" title="Sao chép liên kết">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span>Sao chép link</span>
+          </button>
+
+          <!-- Nút In bài viết -->
+          <button id="print-article-btn" class="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors" title="In bài viết">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ARTICLE HERO IMAGE -->
+    <div class="mb-8">
+      <div class="rounded-xl overflow-hidden aspect-[16/9] bg-slate-100 shadow-md">
+        <img id="article-image" src="" alt="Ảnh bài viết" class="w-full h-full object-cover" />
+      </div>
+      <p id="article-image-caption" class="text-xs text-slate-500 italic mt-2 text-center"></p>
+    </div>
+
+    <!-- ARTICLE RICH TEXT CONTENT -->
+    <article id="article-content" class="text-slate-800 text-lg leading-relaxed space-y-6">
+      <!-- Nội dung được nạp qua detail.js -->
+    </article>
+
+    <!-- TAGS CLOUD -->
+    <div class="my-10 pt-6 border-t border-slate-200">
+      <h3 class="text-xs uppercase font-extrabold tracking-wider text-slate-400 mb-3">TỪ KHÓA BÀI VIẾT:</h3>
+      <div class="flex flex-wrap gap-2 text-xs font-semibold">
+        <span class="px-3 py-1 bg-slate-100 hover:bg-brand-red hover:text-white rounded-full text-slate-700 cursor-pointer transition-colors">#BộCôngThương</span>
+        <span class="px-3 py-1 bg-slate-100 hover:bg-brand-blue hover:text-white rounded-full text-slate-700 cursor-pointer transition-colors">#QuyHoạchĐiệnVIII</span>
+        <span class="px-3 py-1 bg-slate-100 hover:bg-brand-red hover:text-white rounded-full text-slate-700 cursor-pointer transition-colors">#NăngLượngXanh</span>
+        <span class="px-3 py-1 bg-slate-100 hover:bg-brand-blue hover:text-white rounded-full text-slate-700 cursor-pointer transition-colors">#ChuyểnĐổiSố</span>
+        <span class="px-3 py-1 bg-slate-100 hover:bg-brand-red hover:text-white rounded-full text-slate-700 cursor-pointer transition-colors">#NetZero2050</span>
+      </div>
+    </div>
+
+    <!-- BÀI VIẾT LIÊN QUAN -->
+    <section class="my-12 pt-8 border-t-2 border-slate-900">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="font-editorial text-xl font-bold uppercase text-slate-900">BÀI VIẾT CÙNG CHUYÊN MỤC</h2>
+        <span class="text-xs font-bold text-brand-red">TIN MỚI CẬP NHẬT</span>
+      </div>
+      <div id="related-articles-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Render bởi detail.js -->
+      </div>
+    </section>
+
+    <!-- KHUNG BÌNH LUẬN ĐỘC GIẢ (MOCKUP INTERACTIVE) -->
+    <section class="my-12 p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-sm">
+      <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+        <h3 class="font-editorial text-xl font-bold text-slate-900 flex items-center gap-2">
+          Ý KIẾN ĐỘC GIẢ <span id="comment-count" class="text-brand-red font-mono text-base">(2)</span>
+        </h3>
+        <span class="text-xs text-slate-400">Tuân thủ chuẩn mực văn minh ngôn luận</span>
+      </div>
+
+      <!-- Form nhập bình luận -->
+      <form id="comment-form" class="space-y-4 mb-8">
+        <div>
+          <label for="comment-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Họ và tên của bạn:</label>
+          <input id="comment-name" type="text" required placeholder="Ví dụ: Nguyễn Văn A..." class="w-full px-4 py-2 text-sm rounded-lg border border-slate-300 focus:outline-none focus:border-brand-red" />
+        </div>
+        <div>
+          <label for="comment-text" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Ý kiến đóng góp:</label>
+          <textarea id="comment-text" rows="3" required placeholder="Chia sẻ góc nhìn của bạn về vấn đề này..." class="w-full px-4 py-2 text-sm rounded-lg border border-slate-300 focus:outline-none focus:border-brand-red"></textarea>
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" class="px-5 py-2.5 rounded-lg bg-brand-red hover:bg-brand-red-dark text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+            Gửi Bình Luận
+          </button>
+        </div>
+      </form>
+
+      <!-- Danh sách bình luận -->
+      <div id="comment-list" class="space-y-4">
+        <!-- Render bởi detail.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-navy text-slate-400 text-xs border-t-4 border-brand-red py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-white font-bold mb-1">TRUYỀN HÌNH CÔNG THƯƠNG — BỘ CÔNG THƯƠNG VIỆT NAM</p>
+      <p>© 2026 Bản quyền thuộc về Truyền Hình Công Thương. Giấy phép số 148/GP-BTTTT.</p>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-start justify-center pt-20 px-4">
+    <div class="w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-200">
+      <div class="flex items-center px-4 py-3 border-b border-slate-200 bg-slate-50">
+        <input id="search-input" type="text" placeholder="Tìm kiếm tin tức, phóng sự..." class="w-full bg-transparent text-sm text-slate-900 focus:outline-none" />
+        <button id="close-search-btn" class="text-xs font-bold text-slate-400 hover:text-slate-700 px-2 py-1">ĐÓNG</button>
+      </div>
+      <div id="search-results" class="max-h-96 overflow-y-auto p-4 divide-y divide-slate-100"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>

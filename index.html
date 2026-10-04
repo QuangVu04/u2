@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRUYỀN HÌNH CÔNG THƯƠNG — The Wired Edition</title>
+  <meta name="description" content="Tạp chí và kênh truyền hình Bộ Công Thương thiết kế chuẩn phong cách The Wired. Thông tin thời sự, năng lượng, thương mại và công nghệ.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#C4161C',
+              'red-dark': '#991B1B',
+              blue: '#004B87',
+              'blue-dark': '#002E54'
+            }
+          },
+          fontFamily: {
+            wired: ['var(--font-headline)', 'Georgia', 'serif'],
+            sans: ['var(--font-body)', 'sans-serif'],
+            tag: ['var(--font-tag)', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-white text-black font-sans antialiased selection:bg-black selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- 1. TOP HEADER WITH USER'S LOGO.PNG & BRAND TEXT (CHUẨN ẢNH 2)             -->
+  <!-- ========================================================================= -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between">
+      
+      <!-- LOGO + TEXT TRUYỀN HÌNH CÔNG THƯƠNG -->
+      <a href="index.html" class="flex items-center gap-3 sm:gap-4 group">
+        <img src="logo.png" alt="Công Thương TV" class="h-12 sm:h-14 md:h-16 w-auto object-contain flex-shrink-0" />
+        <div class="flex flex-col justify-center">
+          <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-500">BỘ CÔNG THƯƠNG VIỆT NAM</span>
+          <span class="text-base sm:text-xl md:text-2xl font-black text-[#004B87] uppercase tracking-tight leading-tight group-hover:text-red-700 transition-colors">
+            TRUNG TÂM TRUYỀN THÔNG · TRUYỀN HÌNH CÔNG THƯƠNG
+          </span>
+          <span class="text-[10px] sm:text-xs text-slate-500 font-semibold tracking-wide hidden sm:block">
+            Cơ quan ngôn luận của Bộ Công Thương · Tiếng nói của ngành Công nghiệp & Thương mại
+          </span>
+        </div>
+      </a>
+
+      <!-- HOTLINE & NGÀY THÁNG BÊN PHẢI -->
+      <div class="hidden lg:flex flex-col items-end text-xs text-slate-600 font-sans">
+        <div class="flex items-center gap-2 text-slate-700 font-semibold">
+          <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+          Hotline: <strong class="text-red-700 text-sm font-bold font-mono">024.3934.2228</strong>
+        </div>
+        <div class="text-[11px] text-slate-400 mt-0.5" id="realtime-clock-header">
+          Thứ Hai, 05/10/2026
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- 2. SOLID RED NAVBAR (CHÍNH XÁC NHƯ ẢNH 2 CỦA USER)                      -->
+    <!-- ======================================================================= -->
+    <nav class="bg-[#B91C1C] text-white shadow-md sticky top-0 z-40" aria-label="Menu chính">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between">
+        
+        <!-- NÚT MOBILE MENU (CHO MÀN HÌNH NHỎ) -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2.5 text-white hover:bg-red-800 transition-colors" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+
+        <!-- DANH SÁCH MENU ĐỎ (CHUẨN TỪNG MỤC TRONG ẢNH 2) -->
+        <ul class="flex items-center overflow-x-auto whitespace-nowrap text-xs font-bold uppercase tracking-wider py-0 no-scrollbar">
+          
+          <!-- Icon Trang Chủ (Home) -->
+          <li class="flex-shrink-0">
+            <a href="index.html" class="flex items-center px-3.5 py-3 hover:bg-red-800 bg-red-900/40 text-white transition-colors relative" title="Trang chủ">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <!-- Thanh gạch chân trang chủ -->
+              <span class="absolute bottom-0 inset-x-2 h-1 bg-white"></span>
+            </a>
+          </li>
+          
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=thoi-su" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">TIN TỨC</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=cong-nghiep" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">CÔNG NGHIỆP</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=thuong-mai" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">THƯƠNG MẠI</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=hoi-nhap" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">HỘI NHẬP</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=thuong-hieu" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">THƯƠNG HIỆU</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=chuyen-doi-so" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">KHOA HỌC CÔNG NGHỆ</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=doanh-nghiep" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">DOANH NGHIỆP</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=van-hoa-cong-thuong" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">VĂN HÓA CÔNG THƯƠNG</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="video.html" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors font-black">VIDEO</a>
+          </li>
+
+          <li class="text-white/40 font-light select-none px-1">|</li>
+
+          <li class="flex-shrink-0">
+            <a href="category.html?cat=tap-chi-anh" class="px-2.5 py-3 inline-block hover:bg-red-800 transition-colors">TẠP CHÍ ẢNH</a>
+          </li>
+
+        </ul>
+
+        <!-- Icon Tìm kiếm bên phải (Kính lúp) -->
+        <button id="open-search-btn" class="p-2.5 hover:bg-red-800 text-white transition-colors flex-shrink-0" aria-label="Tìm kiếm bài viết">
+          <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </button>
+
+      </div>
+    </nav>
+
+    <!-- ======================================================================= -->
+    <!-- 3. BREAKING NEWS STRIP / TIN NÓNG 24/7 (CHUẨN ẢNH 2)                    -->
+    <!-- ======================================================================= -->
+    <div class="bg-white border-b border-slate-200 py-1.5 overflow-hidden flex items-center shadow-inner">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 w-full flex items-center">
+        
+        <!-- Badge Tin Nóng 24/7 màu đỏ thẫm -->
+        <div class="flex items-center gap-1.5 pr-4 bg-white z-10 whitespace-nowrap">
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-[#B91C1C] text-white text-[11px] font-black uppercase tracking-wider rounded-sm shadow-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+            TIN NÓNG 24/7:
+          </span>
+        </div>
+
+        <!-- Dải chữ chạy mượt mà -->
+        <div class="overflow-hidden relative flex-1 text-xs text-slate-800 font-medium tracking-wide">
+          <div class="animate-marquee whitespace-nowrap flex items-center gap-8">
+            <span><strong class="text-red-600 font-bold">•</strong> Việt Nam đảm nhiệm thành công vai trò đối tác toàn diện CPTPP và EVFTA 2026</span>
+            <span><strong class="text-red-600 font-bold">•</strong> Bộ Công Thương đồng hành hỗ trợ doanh nghiệp nông sản mở rộng thị phần tại EU và Hoa Kỳ</span>
+            <span><strong class="text-red-600 font-bold">•</strong> Đẩy nhanh tiến độ thi công các dự án truyền tải điện 500kV mạch 3 đảm bảo an toàn cấp điện</span>
+            <span><strong class="text-red-600 font-bold">•</strong> Tổng kim ngạch xuất nhập khẩu 9 tháng đầu năm lập kỷ lục mới vượt mốc 570 tỷ USD</span>
+            <span><strong class="text-red-600 font-bold">•</strong> Tăng cường kiểm tra, giám sát thị trường xăng dầu và hàng hóa thiết yếu phục vụ tiêu dùng</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION - 3 COLUMNS EXACT WIRED LAYOUT (SCREENSHOT 1 & 2)         -->
+  <!-- ========================================================================= -->
+  <main class="max-w-[1440px] mx-auto px-4 sm:px-6 pt-6">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10 border-b border-black">
+      
+      <!-- ===================================================================== -->
+      <!-- CỘT 1 (TRÁI): TODAY'S PICKS (3 CỘT / 25%)                            -->
+      <!-- ===================================================================== -->
+      <aside class="lg:col-span-3 lg:border-r border-slate-200 lg:pr-6" aria-label="Tiêu điểm hôm nay">
+        <div class="border-b border-black pb-2 mb-4">
+          <span class="wired-badge">TODAY'S PICKS</span>
+        </div>
+
+        <div class="space-y-6">
+          
+          <!-- Item 1 -->
+          <article class="flex gap-3.5 story-link pb-6 border-b border-slate-200 group">
+            <!-- 1:1 Placeholder Image -->
+            <div class="w-[84px] h-[84px] flex-shrink-0 img-placeholder">
+              <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>1:1 FOTO</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-kicker text-brand-red block mb-1">CÔNG NGHIỆP ĐIỆN</span>
+              <h2 class="font-wired text-lg sm:text-xl font-bold text-black story-headline leading-none">
+                <a href="detail.html?slug=evnnpc-phat-huy-vai-tro-sang-kien-cai-tien-ky-thuat-chuyen-doi-so">
+                  EVNNPC Phát Huy Vai Trò Sáng Kiến Cải Tiến Kỹ Thuật Và Chuyển Đổi Số
+                </a>
+              </h2>
+              <span class="wired-byline block mt-1.5">BỞI BAN NĂNG LƯỢNG & ĐẦU TƯ</span>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="flex gap-3.5 story-link pb-6 border-b border-slate-200 group">
+            <div class="w-[84px] h-[84px] flex-shrink-0 img-placeholder">
+              <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>1:1 FOTO</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-kicker text-brand-blue block mb-1">BẢO VỆ MÔI TRƯỜNG</span>
+              <h2 class="font-wired text-lg sm:text-xl font-bold text-black story-headline leading-none">
+                <a href="detail.html?slug=doanh-nghiep-nganh-giay-doi-moi-cong-nghe-bao-ve-moi-truong">
+                  Doanh Nghiệp Ngành Giấy Đổi Mới Công Nghệ Sâu Để Giảm Thiểu Phát Thải
+                </a>
+              </h2>
+              <span class="wired-byline block mt-1.5">BỞI PHÓNG VIÊN KHÁNH AN</span>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="flex gap-3.5 story-link pb-6 border-b border-slate-200 group">
+            <div class="w-[84px] h-[84px] flex-shrink-0 img-placeholder">
+              <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>1:1 FOTO</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-kicker text-brand-red block mb-1">THƯƠNG MẠI SỐ</span>
+              <h2 class="font-wired text-lg sm:text-xl font-bold text-black story-headline leading-none">
+                <a href="detail.html?slug=da-dang-tieu-thu-san-pham-cam-qua-thuong-mai-dien-tu">
+                  Đa Dạng Hóa Kênh Tiêu Thụ Nông Sản Chủ Lực Qua Sàn Thương Mại Điện Tử
+                </a>
+              </h2>
+              <span class="wired-byline block mt-1.5">BỞI PHẠM VĂN THẮNG</span>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="flex gap-3.5 story-link group">
+            <div class="w-[84px] h-[84px] flex-shrink-0 img-placeholder">
+              <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>1:1 FOTO</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-kicker text-brand-blue block mb-1">THỊ TRƯỜNG NỘI ĐỊA</span>
+              <h2 class="font-wired text-lg sm:text-xl font-bold text-black story-headline leading-none">
+                <a href="detail.html?slug=quang-ba-kich-cau-tieu-dung-noi-dia-de-hang-viet-vuon-xa">
+                  Quảng Bá, Kích Cầu Tiêu Dùng Nội Địa: Giữ Vững Tăng Trưởng Bán Lẻ
+                </a>
+              </h2>
+              <span class="wired-byline block mt-1.5">BỞI BAN THỊ TRƯỜNG TRONG NƯỚC</span>
+            </div>
+          </article>
+
+        </div>
+      </aside>
+
+      <!-- ===================================================================== -->
+      <!-- CỘT 2 (GIỮA): THE BIG STORY / LEAD STORY (6 CỘT / 50%)                -->
+      <!-- ===================================================================== -->
+      <section class="lg:col-span-6" aria-label="Bài viết tiêu điểm chính">
+        
+        <!-- Kicker chủ đề giữa trang -->
+        <div class="text-center mb-2">
+          <span class="font-kicker text-xs text-brand-red font-extrabold tracking-[0.15em]">
+            TIÊU ĐIỂM ĐẶC BIỆT · AN NINH NĂNG LƯỢNG
+          </span>
+        </div>
+
+        <!-- TIÊU ĐỀ CHÍNH ELEGANT (THE WIRED EDITORIAL HEADLINE) -->
+        <h1 class="font-wired text-3xl sm:text-4xl lg:text-[44px] font-bold text-center leading-[1.18] text-slate-950 mb-3 tracking-tight hover:text-brand-red transition-colors">
+          <a href="detail.html?slug=quy-hoach-dien-viii-dot-pha-chuyen-dich-nang-luong-xanh-viet-nam">
+            Quy hoạch điện VIII và bước ngoặt chuyển dịch năng lượng xanh của Việt Nam
+          </a>
+        </h1>
+
+        <!-- Sapo / Dek Description -->
+        <p class="text-center text-slate-700 text-sm sm:text-base leading-snug mb-3 max-w-2xl mx-auto font-sans font-normal">
+          Thách thức cam kết Net Zero vào năm 2050 và bài toán khai phóng tiềm năng 600 GW điện gió ngoài khơi nhằm đảm bảo nguồn cung điện sản xuất quốc gia trong kỷ nguyên công nghiệp mới.
+        </p>
+
+        <!-- Byline chính -->
+        <div class="wired-byline text-center mb-5 tracking-widest">
+          BỞI BAN NĂNG LƯỢNG & ĐẦU TƯ, TRẦN HOÀNG, VÀ NGUYỄN VĂN AN
+        </div>
+
+        <!-- Big Lead Image Placeholder (Aspect 16:10 hoặc 16:9) -->
+        <div class="img-placeholder aspect-[16/10] w-full mb-6 border border-slate-300">
+          <svg class="w-12 h-12 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs text-slate-500 font-tag font-bold tracking-wider">HÌNH ẢNH TIÊU ĐIỂM · 1200 x 750 (PLACEHOLDER)</span>
+          <span class="text-[10px] text-slate-400 mt-1 italic">Cánh đồng điện gió ngoài khơi Nam Trung Bộ</span>
+        </div>
+
+        <!-- SUB 2-COLUMN SPLIT (CHÍNH XÁC THEO SCREENSHOT 2 DƯỚI ẢNH CHÍNH) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-slate-200">
+          
+          <!-- Bài nhỏ trái -->
+          <article class="story-link">
+            <span class="font-kicker text-brand-red block mb-1">LƯỚI ĐIỆN THÔNG MINH</span>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-none mb-1.5">
+              <a href="detail.html?slug=chuyen-doi-so-de-tiet-kiem-va-su-dung-hieu-qua-nang-luong">
+                Hệ Thống Lưới Điện Siêu Cao Áp 500kV Đảm Bảo Cung Ứng Điện Miền Bắc
+              </a>
+            </h2>
+            <p class="text-xs text-slate-600 line-clamp-3 leading-snug mb-2">
+              Các dự án đường dây mạch 3 giải tỏa tối đa công suất điện gió và điện mặt trời từ miền Trung và miền Nam.
+            </p>
+            <span class="wired-byline">BỞI BAN KỸ THUẬT SỐ</span>
+          </article>
+
+          <!-- Bài nhỏ phải (có đường kẻ dọc ngăn cách) -->
+          <article class="story-link sm:border-l sm:border-slate-200 sm:pl-6">
+            <span class="font-kicker text-brand-blue block mb-1">CƠ CHẾ DPPA</span>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-none mb-1.5">
+              <a href="detail.html?slug=tu-noi-lo-moi-truong-tro-xi-thanh-vat-lieu-xay-dung">
+                Cơ Chế Mua Bán Điện Trực Tiếp: Khơi Thông Nguồn Vốn Tư Nhân Vào Năng Lượng
+              </a>
+            </h2>
+            <p class="text-xs text-slate-600 line-clamp-3 leading-snug mb-2">
+              Tạo điều kiện cho các nhà máy quy mô lớn mua điện sạch trực tiếp từ chủ đầu tư trang trại điện tái tạo.
+            </p>
+            <span class="wired-byline">BỞI NGUYỄN THANH BÌNH</span>
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- CỘT 3 (PHẢI): TRENDING STORIES (3 CỘT / 25%)                         -->
+      <!-- ===================================================================== -->
+      <aside class="lg:col-span-3 lg:border-l border-slate-200 lg:pl-6" aria-label="Tin xu hướng quan tâm">
+        <div class="border-b border-black pb-2 mb-4">
+          <span class="wired-badge">TRENDING STORIES</span>
+        </div>
+
+        <div class="space-y-5">
+          
+          <!-- Story 1 -->
+          <article class="story-link pb-4 border-b border-slate-200">
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight mb-1">
+              <a href="detail.html?slug=bien-dong-ty-gia-va-chuoi-cung-ung-xuat-nhap-khau-2026">
+                Biến Động Tỷ Giá USD Và Cước Vận Tải: Doanh Nghiệp Xuất Nhập Khẩu Ứng Phó Thế Nào?
+              </a>
+            </h2>
+            <span class="wired-byline">BỞI NGUYỄN VĂN HÙNG</span>
+          </article>
+
+          <!-- Story 2 -->
+          <article class="story-link pb-4 border-b border-slate-200">
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight mb-1">
+              <a href="detail.html?slug=kiem-tra-giam-sat-nghiem-ngat-chuoi-cung-ung-xang-dau-toan-quoc">
+                Bộ Công Thương Tăng Tốc Thanh Tra Đột Xuất Tổng Kho Và Cây Xăng Toàn Quốc
+              </a>
+            </h2>
+            <span class="wired-byline">BỞI HOÀNG MINH</span>
+          </article>
+
+          <!-- Story 3 -->
+          <article class="story-link pb-4 border-b border-slate-200">
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight mb-1">
+              <a href="detail.html?slug=da-dang-tieu-thu-san-pham-cam-qua-thuong-mai-dien-tu">
+                Thương Mại Điện Tử Xuyên Biên Giới Vượt Mốc 25 Tỷ USD Đưa Hàng Việt Vươn Xa
+              </a>
+            </h2>
+            <span class="wired-byline">BỞI LÊ THU HÀ</span>
+          </article>
+
+          <!-- Story 4 -->
+          <article class="story-link pb-4 border-b border-slate-200">
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight mb-1">
+              <a href="detail.html?slug=hiep-dinh-evfta-va-co-hoi-but-pha-nong-san-viet-sang-chau-au">
+                Cắt Giảm 99% Dòng Thuế EVFTA: Thủy Sản Và Dệt May Bứt Phá Sang Thị Trường EU
+              </a>
+            </h2>
+            <span class="wired-byline">BỞI TRẦN QUANG</span>
+          </article>
+
+          <!-- Story 5 -->
+          <article class="story-link pb-4 border-b border-slate-200">
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight mb-1">
+              <a href="detail.html?slug=mo-hinh-chuyen-doi-so-thanh-cong-tai-doanh-nghiep-xuc-tien-thuong-mai">
+                Khởi Công Tổ Hợp Hóa Dầu Và Logistics Năng Lượng Sạch Tại Miền Trung
+              </a>
+            </h2>
+            <span class="wired-byline">BỞI ĐẶNG TUẤN</span>
+          </article>
+
+        </div>
+
+        <!-- SPECIAL SPONSOR / EVENT BOX (THE WIRED WORLD FAIR CHUẨN SCREENSHOT 1) -->
+        <div class="bg-black text-white p-5 mt-6 border-t-4 border-brand-red">
+          <span class="font-tag text-[10px] uppercase tracking-widest text-red-400 font-extrabold block mb-1">
+            TRUYỀN HÌNH ĐẶC BIỆT
+          </span>
+          <h2 class="font-wired text-2xl font-black uppercase leading-none mb-2 text-white">
+            DIỄN ĐÀN CÔNG THƯƠNG 2026
+          </h2>
+          <p class="text-xs text-slate-300 leading-snug mb-3">
+            Hội nghị toàn quốc về Chuyển Đổi Xanh & Công Nghiệp Tương Lai do Bộ Công Thương chủ trì.
+          </p>
+          <a href="video.html" class="inline-block px-3 py-1 bg-brand-red text-white text-[11px] font-tag font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+            XEM TRỰC TIẾP
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 3. SECTION: REVIEWS / ĐIỂM TIN BÁO CHÍ (CHUẨN SCREENSHOT 2)               -->
+    <!-- ========================================================================= -->
+    <section class="py-8 border-b border-black" aria-label="Điểm tin báo chí và phân tích nhanh">
+      <div class="border-b border-black pb-2 mb-6">
+        <span class="wired-badge">REVIEWS · ĐIỂM TIN BÁO CHÍ</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Shelf Card 1 -->
+        <article class="flex gap-3 story-link group">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-red block mb-1">TIÊU ĐIỂM THỊ TRƯỜNG</span>
+            <h2 class="font-wired text-lg font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=quang-ba-kich-cau-tieu-dung-noi-dia-de-hang-viet-vuon-xa">
+                Thị Trường Bán Lẻ Cuối Năm: Hàng Việt Chiếm Lĩnh Kệ Hàng Siêu Thị
+              </a>
+            </h2>
+          </div>
+          <div class="w-16 h-16 flex-shrink-0 img-placeholder">
+            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+        <!-- Shelf Card 2 -->
+        <article class="flex gap-3 story-link group sm:border-l border-slate-200 sm:pl-6">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-blue block mb-1">BÁO CÁO NĂNG LƯỢNG</span>
+            <h2 class="font-wired text-lg font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=chuyen-doi-so-de-tiet-kiem-va-su-dung-hieu-qua-nang-luong">
+                Chỉ Số Tiết Kiệm Điện Năng Đạt Mức Tối Ưu Tại 12 Khu Công Nghiệp
+              </a>
+            </h2>
+          </div>
+          <div class="w-16 h-16 flex-shrink-0 img-placeholder">
+            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+        <!-- Shelf Card 3 -->
+        <article class="flex gap-3 story-link group lg:border-l border-slate-200 lg:pl-6">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-red block mb-1">XÚC TIẾN NÔNG SẢN</span>
+            <h2 class="font-wired text-lg font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=da-dang-tieu-thu-san-pham-cam-qua-thuong-mai-dien-tu">
+                Sản Phẩm Cam OCOP Lên Sàn Số: Doanh Thu Tăng Gấp Đôi Vụ Mùa
+              </a>
+            </h2>
+          </div>
+          <div class="w-16 h-16 flex-shrink-0 img-placeholder">
+            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+        <!-- Shelf Card 4 -->
+        <article class="flex gap-3 story-link group lg:border-l border-slate-200 lg:pl-6">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-blue block mb-1">CẢI TIẾN CÔNG NGHỆ</span>
+            <h2 class="font-wired text-lg font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=tu-noi-lo-moi-truong-tro-xi-thanh-vat-lieu-xay-dung">
+                Tro Xỉ Nhiệt Điện: Tái Chế 100% Thành Cốt Liệu Bê Tông Xanh
+              </a>
+            </h2>
+          </div>
+          <div class="w-16 h-16 flex-shrink-0 img-placeholder">
+            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. SECTION: CHUYÊN ĐỀ FEATURE SPLIT (CHUẨN SCREENSHOT 3)                   -->
+    <!-- ========================================================================= -->
+    <section class="py-10 border-b border-black" aria-label="Chuyên đề xuất khẩu">
+      <div class="border-b border-black pb-2 mb-6">
+        <span class="wired-badge">CHUYÊN ĐỀ: XÚC TIẾN THƯƠNG MẠI & HỘI NHẬP</span>
+      </div>
+
+      <!-- Khối Lớn Split: Trái Ảnh Lớn + Phải Tiêu Đề Khủng -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+        
+        <!-- Ảnh Placeholder To Bản Bên Trái (7 Cột) -->
+        <div class="lg:col-span-7">
+          <div class="img-placeholder aspect-[16/10] w-full border border-slate-300">
+            <svg class="w-16 h-16 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span class="text-sm font-tag font-bold tracking-wider">HÌNH ẢNH CHUYÊN ĐỀ · 1000 x 625 (PLACEHOLDER)</span>
+            <span class="text-xs text-slate-400 mt-1 italic">Chuỗi Cung Ứng Xuất Khẩu Hàng Việt Nam</span>
+          </div>
+        </div>
+
+        <!-- Khối Chữ Bên Phải (5 Cột) -->
+        <div class="lg:col-span-5">
+          <span class="font-kicker text-brand-red block mb-2">HỘI NHẬP QUỐC TẾ</span>
+          <h2 class="font-wired text-3xl sm:text-4xl md:text-5xl font-black text-black leading-[0.95] uppercase mb-4 hover:text-brand-blue transition-colors">
+            <a href="detail.html?slug=da-dang-tieu-thu-san-pham-cam-qua-thuong-mai-dien-tu">
+              Chiến Lược Đưa Nông Sản Việt Chinh Phục Các Thị Trường Khó Tính Nhất
+            </a>
+          </h2>
+          <p class="text-slate-700 text-sm sm:text-base leading-snug mb-4">
+            Đánh giá toàn diện các giải pháp vượt rào cản kỹ thuật CBAM, chứng chỉ xanh và chiến lược tiếp cận thị trường EU, Hoa Kỳ, Nhật Bản của các tập đoàn xuất khẩu chủ lực.
+          </p>
+          <div class="wired-byline">
+            BỞI BAN BIÊN TẬP THƯƠNG MẠI QUỐC TẾ
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dải 4 Card Phụ Dưới Chuyên Đề (Screenshot 3) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-slate-200">
+        
+        <article class="flex gap-3 story-link group">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-blue block mb-1">RÀO CẢN CBAM</span>
+            <h2 class="font-wired text-base font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=doanh-nghiep-nganh-giay-doi-moi-cong-nghe-bao-ve-moi-truong">
+                Quy Chuẩn Giảm Phát Thải Khí Nhà Kính Cho Thép Và Nhôm
+              </a>
+            </h2>
+          </div>
+          <div class="w-14 h-14 flex-shrink-0 img-placeholder">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+        <article class="flex gap-3 story-link group sm:border-l border-slate-200 sm:pl-6">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-red block mb-1">LOGISTICS BIỂN</span>
+            <h2 class="font-wired text-base font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=bien-dong-ty-gia-va-chuoi-cung-ung-xuat-nhap-khau-2026">
+                Tối Ưu Hóa Cước Vận Chuyển Container Đi Bờ Đông Nước Mỹ
+              </a>
+            </h2>
+          </div>
+          <div class="w-14 h-14 flex-shrink-0 img-placeholder">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+        <article class="flex gap-3 story-link group lg:border-l border-slate-200 lg:pl-6">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-blue block mb-1">XÚC TIẾN B2B</span>
+            <h2 class="font-wired text-base font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=mo-hinh-chuyen-doi-so-thanh-cong-tai-doanh-nghiep-xuc-tien-thuong-mai">
+                Kết Nối Giao Thương Trực Tuyến Đưa Hàng Thủ Công Mỹ Nghệ Vươn Xa
+              </a>
+            </h2>
+          </div>
+          <div class="w-14 h-14 flex-shrink-0 img-placeholder">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+        <article class="flex gap-3 story-link group lg:border-l border-slate-200 lg:pl-6">
+          <div class="flex-1">
+            <span class="font-kicker text-brand-red block mb-1">TRUY XUẤT NGUỒN GỐC</span>
+            <h2 class="font-wired text-base font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=da-dang-tieu-thu-san-pham-cam-qua-thuong-mai-dien-tu">
+                Mã Số Vùng Trồng Định Danh Cho Sầu Riêng Xuất Khẩu Sang Trung Quốc
+              </a>
+            </h2>
+          </div>
+          <div class="w-14 h-14 flex-shrink-0 img-placeholder">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. SECTION: MULTI-COLUMN CATEGORY GRID (CHUẨN SCREENSHOT 4)              -->
+    <!-- ========================================================================= -->
+    <section class="py-10" aria-label="Chuyên đề đa ngành">
+      
+      <!-- HÀNG 1: 3 CỘT (CÔNG NGHIỆP, AN NINH NĂNG LƯỢNG, KHOA HỌC & CÔNG NGHỆ) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-black">
+        
+        <!-- Cột 1: CÔNG NGHIỆP (Badge: POLITICS / CÔNG NGHIỆP) -->
+        <div>
+          <div class="border-b border-black pb-2 mb-4">
+            <span class="wired-badge">CÔNG NGHIỆP</span>
+          </div>
+          <article class="story-link mb-4">
+            <div class="img-placeholder aspect-[16/10] w-full mb-3 border border-slate-200">
+              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>16:9 PLACEHOLDER</span>
+            </div>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=evnnpc-phat-huy-vai-tro-sang-kien-cai-tien-ky-thuat-chuyen-doi-so">
+                Các Nhà Máy Thép Và Hóa Chất Tăng Tốc Hiện Đại Hóa Dây Chuyền Sản Xuất
+              </a>
+            </h2>
+          </article>
+          <div class="space-y-3 pt-3 border-t border-slate-200">
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=doanh-nghiep-nganh-giay-doi-moi-cong-nghe-bao-ve-moi-truong">Chiến Lược Tự Chủ Nguồn Nguyên Liệu Phục Vụ Ngành Dệt May Xuất Khẩu</a>
+            </h3>
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=tu-noi-lo-moi-truong-tro-xi-thanh-vat-lieu-xay-dung">Quy Hoạch Cụm Công Nghiệp Phụ Trợ Tại Các Vùng Kinh Tế Trọng Điểm</a>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Cột 2: AN NINH NĂNG LƯỢNG (Badge: SECURITY / NĂNG LƯỢNG) -->
+        <div class="md:border-l border-slate-200 md:pl-8">
+          <div class="border-b border-black pb-2 mb-4">
+            <span class="wired-badge">AN NINH NĂNG LƯỢNG</span>
+          </div>
+          <article class="story-link mb-4">
+            <div class="img-placeholder aspect-[16/10] w-full mb-3 border border-slate-200">
+              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>16:9 PLACEHOLDER</span>
+            </div>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=quy-hoach-dien-viii-dot-pha-chuyen-dich-nang-luong-xanh-viet-nam">
+                Giám Sát An Toàn Vận Hành Đập Thủy Điện Và Điều Tiết Lũ Mùa Mưa Bão
+              </a>
+            </h2>
+          </article>
+          <div class="space-y-3 pt-3 border-t border-slate-200">
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=kiem-tra-giam-sat-nghiem-ngat-chuoi-cung-ung-xang-dau-toan-quoc">Bảo Đảm Nguồn Cung Dầu Khí Và Xăng Dầu Dự Trữ Quốc Gia Năm 2026</a>
+            </h3>
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=chuyen-doi-so-de-tiet-kiem-va-su-dung-hieu-qua-nang-luong">Hợp Tác Quốc Tế Phát Triển Năng Lượng Nguyên Tử Vì Mục Đích Hòa Bình</a>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Cột 3: KHOA HỌC & CÔNG NGHỆ (Badge: SCIENCE) -->
+        <div class="md:border-l border-slate-200 md:pl-8">
+          <div class="border-b border-black pb-2 mb-4">
+            <span class="wired-badge">KHOA HỌC & CÔNG NGHỆ</span>
+          </div>
+          <article class="story-link mb-4">
+            <div class="img-placeholder aspect-[16/10] w-full mb-3 border border-slate-200">
+              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>16:9 PLACEHOLDER</span>
+            </div>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=chuyen-doi-so-de-tiet-kiem-va-su-dung-hieu-qua-nang-luong">
+                Ứng Dụng Trí Tuệ Nhân Tạo AI Dự Báo Phụ Tải Tiêu Thụ Điện Tức Thời
+              </a>
+            </h2>
+          </article>
+          <div class="space-y-3 pt-3 border-t border-slate-200">
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=mo-hinh-chuyen-doi-so-thanh-cong-tai-doanh-nghiep-xuc-tien-thuong-mai">Hệ Thống Bản Đồ Số Nông Sản Và Bản Quyền Sở Hữu Trí Tuệ Thương Hiệu</a>
+            </h3>
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=evnnpc-phat-huy-vai-tro-sang-kien-cai-tien-ky-thuat-chuyen-doi-so">Sáng Kiến Đổi Mới Quy Trình Quản Trị ERP Cho Nhà Máy Cơ Khí Chế Tạo</a>
+            </h3>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HÀNG 2: 3 CỘT (THƯƠNG MẠI, XUẤT NHẬP KHẨU, CHUYỂN ĐỔI SỐ) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10">
+        
+        <!-- Cột 4: THƯƠNG MẠI (Badge: BUSINESS) -->
+        <div>
+          <div class="border-b border-black pb-2 mb-4">
+            <span class="wired-badge">THƯƠNG MẠI</span>
+          </div>
+          <article class="story-link mb-4">
+            <div class="img-placeholder aspect-[16/10] w-full mb-3 border border-slate-200">
+              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>16:9 PLACEHOLDER</span>
+            </div>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=quang-ba-kich-cau-tieu-dung-noi-dia-de-hang-viet-vuon-xa">
+                Cuộc Vận Động Người Việt Nam Ưu Tiên Dùng Hàng Việt Nam Giai Đoạn Mới
+              </a>
+            </h2>
+          </article>
+          <div class="space-y-3 pt-3 border-t border-slate-200">
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=da-dang-tieu-thu-san-pham-cam-qua-thuong-mai-dien-tu">Phòng Chống Gian Lận Thương Mại Và Bảo Vệ Quyền Lợi Người Tiêu Dùng</a>
+            </h3>
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=kiem-tra-giam-sat-nghiem-ngat-chuoi-cung-ung-xang-dau-toan-quoc">Bình Ổn Giá Thị Trường Mặt Hàng Thiết Yếu Dịp Tết Nguyên Đán</a>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Cột 5: XUẤT NHẬP KHẨU (Badge: GEAR NEWS) -->
+        <div class="md:border-l border-slate-200 md:pl-8">
+          <div class="border-b border-black pb-2 mb-4">
+            <span class="wired-badge">XUẤT NHẬP KHẨU</span>
+          </div>
+          <article class="story-link mb-4">
+            <div class="img-placeholder aspect-[16/10] w-full mb-3 border border-slate-200">
+              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>16:9 PLACEHOLDER</span>
+            </div>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=hiep-dinh-evfta-va-co-hoi-but-pha-nong-san-viet-sang-chau-au">
+                Kim Ngạch Xuất Khẩu Gạo Và Cà Phê Đạt Mốc Doanh Thu Cao Nhất Lịch Sử
+              </a>
+            </h2>
+          </article>
+          <div class="space-y-3 pt-3 border-t border-slate-200">
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=bien-dong-ty-gia-va-chuoi-cung-ung-xuat-nhap-khau-2026">Chính Sách Phòng Vệ Thương Mại Và Bảo Hộ Doanh Nghiệp Nội Địa</a>
+            </h3>
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=da-dang-tieu-thu-san-pham-cam-qua-thuong-mai-dien-tu">Quy Tắc Xuất Xứ Hàng Hóa C/O Trong Các Hiệp Định FTA Thế Hệ Mới</a>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Cột 6: CHUYỂN ĐỔI SỐ (Badge: REVIEWS) -->
+        <div class="md:border-l border-slate-200 md:pl-8">
+          <div class="border-b border-black pb-2 mb-4">
+            <span class="wired-badge">CHUYỂN ĐỔI SỐ</span>
+          </div>
+          <article class="story-link mb-4">
+            <div class="img-placeholder aspect-[16/10] w-full mb-3 border border-slate-200">
+              <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>16:9 PLACEHOLDER</span>
+            </div>
+            <h2 class="font-wired text-xl font-bold text-black story-headline leading-tight">
+              <a href="detail.html?slug=mo-hinh-chuyen-doi-so-thanh-cong-tai-doanh-nghiep-xuc-tien-thuong-mai">
+                Cổng Dịch Vụ Công Trực Tuyến Bộ Công Thương Đạt Chuẩn Mức Độ 4
+              </a>
+            </h2>
+          </article>
+          <div class="space-y-3 pt-3 border-t border-slate-200">
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=chuyen-doi-so-de-tiet-kiem-va-su-dung-hieu-qua-nang-luong">Hóa Đơn Điện Tử Từng Lần Trong Hoạt Động Bán Lẻ Xăng Dầu</a>
+            </h3>
+            <h3 class="font-bold text-xs text-black leading-snug hover:underline">
+              <a href="detail.html?slug=evnnpc-phat-huy-vai-tro-sang-kien-cai-tien-ky-thuat-chuyen-doi-so">Phát Triển Hạ Tầng Viễn Thông Chuyên Dùng Cho Giám Sát Lưới Điện</a>
+            </h3>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 6. FOOTER THE WIRED CHUẨN ĐEN TRẮNG ĐANH THÉP                             -->
+  <!-- ========================================================================= -->
+  <footer class="border-t-2 border-black bg-white text-black py-12 mt-12">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6">
+      
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-8 border-b border-black gap-6">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="Công Thương TV" class="h-10 w-auto object-contain" />
+          <span class="font-wired text-xl font-black uppercase tracking-wider text-black">TRUYỀN HÌNH CÔNG THƯƠNG</span>
+        </div>
+
+        <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs font-tag font-bold uppercase tracking-wider" aria-label="Liên kết chân trang">
+          <a href="category.html?cat=thoi-su" class="hover:text-brand-red">CHÍNH SÁCH</a>
+          <a href="category.html?cat=cong-nghiep" class="hover:text-brand-blue">NĂNG LƯỢNG</a>
+          <a href="category.html?cat=thuong-mai" class="hover:text-brand-red">THƯƠNG MẠI</a>
+          <a href="category.html?cat=hoi-nhap" class="hover:text-brand-blue">HỘI NHẬP</a>
+          <a href="video.html" class="hover:text-brand-red font-black text-brand-blue">VIDEO PHÓNG SỰ</a>
+        </nav>
+      </div>
+
+      <div class="pt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-600 font-sans">
+        <div>
+          <p class="font-bold text-black uppercase mb-1">Cơ quan ngôn luận của Bộ Công Thương Việt Nam</p>
+          <p>Giấy phép hoạt động báo chí điện tử số: <strong>148/GP-BTTTT</strong> do Bộ Thông tin và Truyền thông cấp.</p>
+          <p>Trụ sở tòa soạn: 54 Hai Bà Trưng, Phường Tràng Tiền, Quận Hoàn Kiếm, TP. Hà Nội.</p>
+        </div>
+        <div class="md:text-right">
+          <p>Đường dây nóng: <strong class="text-brand-red font-tag font-bold text-sm">024.3934.2228</strong></p>
+          <p>© 2026 Bản quyền thuộc về Truyền Hình Công Thương. Ghi rõ nguồn khi phát hành lại thông tin.</p>
+          <p class="text-[10px] text-slate-400 mt-1">Giao diện tái hiện chuẩn cấu trúc <strong>The Wired Editorial Architecture</strong> với hệ nhận diện Đỏ - Xanh Công Thương.</p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MODAL TÌM KIẾM TỨC THÌ -->
+  <div id="search-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-start justify-center pt-20 px-4">
+    <div class="w-full max-w-2xl bg-white rounded-none border-2 border-black shadow-2xl overflow-hidden">
+      <div class="flex items-center px-4 py-3 border-b-2 border-black bg-slate-50">
+        <svg class="w-5 h-5 text-black mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input id="search-input" type="text" placeholder="Tìm kiếm tin bài theo phong cách The Wired..." class="w-full bg-transparent text-sm sm:text-base text-black placeholder-slate-400 focus:outline-none font-sans" />
+        <button id="close-search-btn" class="text-xs font-tag font-bold text-black hover:text-brand-red px-2 py-1 uppercase">ĐÓNG</button>
+      </div>
+      <div id="search-results" class="max-h-96 overflow-y-auto p-4 divide-y divide-slate-100"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING FONT SWITCHER TOOL (DÀNH CHO USER TRẢI NGHIỆM TEXT ĐẸP NHẤT)    -->
+  <!-- ========================================================================= -->
+  <aside class="fixed bottom-4 right-4 z-50 bg-slate-900/95 backdrop-blur text-white rounded-lg shadow-2xl p-2 sm:p-2.5 flex items-center gap-1.5 sm:gap-2 border border-slate-700 text-xs" aria-label="Bộ chuyển đổi font">
+    <span class="font-tag font-bold text-slate-400 pl-1 uppercase text-[10px] hidden sm:inline">🔤 Font Tiêu Đề:</span>
+    <button onclick="setHeadlineFont('playfair')" id="font-btn-playfair" class="px-2.5 py-1 rounded bg-brand-red text-white font-bold transition-all shadow-sm" title="Font Playfair Display (Serif sang trọng)">Playfair</button>
+    <button onclick="setHeadlineFont('lora')" id="font-btn-lora" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-bold hover:bg-slate-700 transition-all" title="Font Lora (Tạp chí thời sự)">Lora</button>
+    <button onclick="setHeadlineFont('bevietnam')" id="font-btn-bevietnam" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-bold hover:bg-slate-700 transition-all" title="Font Be Vietnam Pro (Hiện đại, tối ưu tiếng Việt)">Be Vietnam</button>
+    <button onclick="setHeadlineFont('barlow')" id="font-btn-barlow" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-bold hover:bg-slate-700 transition-all" title="Font Barlow Condensed (Chuẩn Wired US)">Barlow</button>
+  </aside>
+
+  <script>
+    function setHeadlineFont(fontName) {
+      document.body.classList.remove('font-theme-playfair', 'font-theme-lora', 'font-theme-bevietnam', 'font-theme-barlow');
+      document.body.classList.add('font-theme-' + fontName);
+      
+      const btns = ['playfair', 'lora', 'bevietnam', 'barlow'];
+      btns.forEach(b => {
+        const el = document.getElementById('font-btn-' + b);
+        if (el) {
+          if (b === fontName) {
+            el.className = 'px-2.5 py-1 rounded bg-brand-red text-white font-bold transition-all shadow-sm';
+          } else {
+            el.className = 'px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-bold hover:bg-slate-700 transition-all';
+          }
+        }
+      });
+    }
+  </script>
+
+  <!-- JavaScript Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+/* THE WIRED EDITORIAL STYLESHEET - PREMIUM TYPOGRAPHY EDITION */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap');
+
+:root {
+  --brand-red: #C4161C;
+  --brand-blue: #004B87;
+  --wired-black: #000000;
+  --wired-gray: #64748B;
+  
+  /* Font mặc định cho tiêu đề: Playfair Display (Sang trọng chuẩn báo chí tạp chí quốc tế) */
+  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-tag: 'Be Vietnam Pro', sans-serif;
+}
+
+/* Các theme font có thể chuyển đổi */
+body.font-theme-playfair {
+  --font-headline: 'Playfair Display', Georgia, serif;
+}
+
+body.font-theme-lora {
+  --font-headline: 'Lora', Georgia, serif;
+}
+
+body.font-theme-bevietnam {
+  --font-headline: 'Be Vietnam Pro', sans-serif;
+}
+
+body.font-theme-barlow {
+  --font-headline: 'Barlow Condensed', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #FFFFFF;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headlines Styled with Editorial Font (Title Case, Crisp, Elegant) */
+.font-wired {
+  font-family: var(--font-headline);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.font-wired-title {
+  font-family: var(--font-headline);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+/* Category Kickers and Tags */
+.font-kicker {
+  font-family: var(--font-tag);
+  font-size: 0.6875rem; /* 11px */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* WIRED Solid Black Section Badge */
+.wired-badge {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: var(--font-tag);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3.5px 9px;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.wired-badge-red {
+  background-color: var(--brand-red);
+  color: #FFFFFF;
+  font-family: var(--font-tag);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3.5px 9px;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.wired-badge-blue {
+  background-color: var(--brand-blue);
+  color: #FFFFFF;
+  font-family: var(--font-tag);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3.5px 9px;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+/* Author Bylines */
+.wired-byline {
+  font-family: var(--font-tag);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+/* Hairline Editorial Borders */
+.border-wired {
+  border-color: #000000;
+}
+
+.border-subtle {
+  border-color: #E2E8F0;
+}
+
+/* Placeholder Styling */
+.img-placeholder {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94A3B8;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.img-placeholder svg {
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+
+.img-placeholder:hover svg {
+  opacity: 0.8;
+}
+
+.img-placeholder span {
+  font-family: var(--font-tag);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  color: #64748B;
+}
+
+/* Strip hover line effect */
+.story-link:hover .story-headline {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* Marquee Ticker Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
